@@ -1,3 +1,11 @@
+<?php 
+include 'konek.php';
+session_start();
+if($_SESSION['status']!="login"){
+    header("location:../index.php?pesan=belum_login");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -259,7 +267,7 @@
     <!-- Women Banner Section End -->
 
     <!-- Instagram Section Begin -->
-    <div class="instagram-photo">
+    <!-- <div class="instagram-photo">
         <div class="insta-item set-bg" data-setbg="img/insta-1.jpg">
             <div class="inside-text">
                 <i class="ti-instagram"></i>
@@ -296,11 +304,11 @@
                 <h5><a href="#">shayna_gallery</a></h5>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- Instagram Section End -->
 
     <!-- Partner Logo Section Begin -->
-    <div class="partner-logo">
+    <!-- <div class="partner-logo">
         <div class="container">
             <div class="logo-carousel owl-carousel">
                 <div class="logo-item">
@@ -330,7 +338,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- Partner Logo Section End -->
 
     <!-- Footer Section Begin -->
