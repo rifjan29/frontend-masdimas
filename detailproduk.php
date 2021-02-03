@@ -1,3 +1,7 @@
+<?php 
+    session_start();
+    include 'konek.php'
+?>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -7,7 +11,7 @@
     <meta name="keywords" content="Shayna, unica, creative, html" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Shayna | Template</title>
+    <title>Masdimas</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet" />
@@ -22,6 +26,7 @@
     <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css" />
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css" />
     <link rel="stylesheet" href="css/style.css" type="text/css" />
+    <link rel="shortcut icon" href="gambar/logo.png" type="image/x-icon">
 </head>
 
 <body>
@@ -36,10 +41,10 @@
             <div class="container">
                 <div class="ht-left">
                     <div class="mail-service">
-                        <i class=" fa fa-envelope"></i> hello.shayna@gmail.com
+                        <i class=" fa fa-instagram"></i> @jajanan_masdimas
                     </div>
                     <div class="phone-service">
-                        <i class=" fa fa-phone"></i> +628 22081996
+                        <i class=" fa fa-phone"></i> 081111653234
                     </div>
                 </div>
                 <div class="ht-right-login">
@@ -56,7 +61,6 @@
                 </div>
             </div>
         </div>
-
 <!-- modal untuk masuk akun -->
 <div class="modal" id="masuk-akun" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -96,14 +100,14 @@
     </div>
   </div>
 </div>
-<!-- selesai untuk masuk akun -->
+
         <div class="container">
             <div class="inner-header">
                 <div class="row">
                     <div class="col-lg-2 col-md-2">
                         <div class="logo">
-                            <a href="./index.html">
-                                <img src="img/logo_website_shayna.png" alt="" />
+                            <a href="index.php">
+                                <img src="gambar/logo.png" alt="" />
                             </a>
                         </div>
                     </div>
@@ -169,212 +173,59 @@
     </header>
     <!-- Header End -->
 
-    <!-- Hero Section Begin -->
-    <section class="hero-section">
-        <div class="hero-items owl-carousel">
-            <div class="single-hero-items set-bg" data-setbg="img/hero-1.jpg">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-5">
-                            <span>Bag,kids</span>
-                            <h1>Black friday</h1>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                            </p>
-                            <a href="#" class="primary-btn">Shop Now</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="single-hero-items set-bg" data-setbg="img/hero-2.jpg">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-5">
-                            <span>Bag,kids</span>
-                            <h1>Black friday</h1>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                            </p>
-                            <a href="#" class="primary-btn">Shop Now</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Hero Section End -->
-
-    <!-- Women Banner Section Begin -->
-    <section class="women-banner spad">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-12 mt-5">
-                    <div class="product-slider owl-carousel">
-                        <div class="product-item">
-                            <div class="pi-pic">
-                                <img src="img/mickey1.jpg" alt="" />
-                                <ul>
-                                    <li class="w-icon active">
-                                        <a href="#"><i class="icon_bag_alt"></i></a>
-                                    </li>
-                                    <li class="quick-view"><a href="product.html">+ Quick View</a></li>
-                                </ul>
-                            </div>
-                            <div class="pi-text">
-                                <div class="catagory-name">Coat</div>
-                                <a href="#">
-                                    <h5>Mickey Baggy</h5>
-                                </a>
-                                <div class="product-price">
-                                    $14.00
-                                    <span>$35.00</span>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- <div class="product-item">
-                            <div class="pi-pic">
-                                <img src="img/products/women-2.jpg" alt="" />
-                                <ul>
-                                    <li class="w-icon active">
-                                        <a href="#"><i class="icon_bag_alt"></i></a>
-                                    </li>
-                                    <li class="quick-view"><a href="#">+ Quick View</a></li>
-                                </ul>
-                            </div>
-                            <div class="pi-text">
-                                <div class="catagory-name">Shoes</div>
-                                <a href="#">
-                                    <h5>Guangzhou sweater</h5>
-                                </a>
-                                <div class="product-price">
-                                    $13.00
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-item">
-                            <div class="pi-pic">
-                                <img src="img/products/women-3.jpg" alt="" />
-                                <ul>
-                                    <li class="w-icon active">
-                                        <a href="#"><i class="icon_bag_alt"></i></a>
-                                    </li>
-                                    <li class="quick-view"><a href="#">+ Quick View</a></li>
-                                </ul>
-                            </div>
-                            <div class="pi-text">
-                                <div class="catagory-name">Towel</div>
-                                <a href="#">
-                                    <h5>Pure Pineapple</h5>
-                                </a>
-                                <div class="product-price">
-                                    $34.00
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-item">
-                            <div class="pi-pic">
-                                <img src="img/products/women-4.jpg" alt="" />
-                                <ul>
-                                    <li class="w-icon active">
-                                        <a href="#"><i class="icon_bag_alt"></i></a>
-                                    </li>
-                                    <li class="quick-view"><a href="#">+ Quick View</a></li>
-                                    <li class="w-icon">
-                                        <a href="#"><i class="fa fa-random"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="pi-text">
-                                <div class="catagory-name">Towel</div>
-                                <a href="#">
-                                    <h5>Converse Shoes</h5>
-                                </a>
-                                <div class="product-price">
-                                    $34.00
-                                </div>
-                            </div> -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Women Banner Section End -->
-
-    <!-- Instagram Section Begin -->
-    <!-- <div class="instagram-photo">
-        <div class="insta-item set-bg" data-setbg="img/insta-1.jpg">
-            <div class="inside-text">
-                <i class="ti-instagram"></i>
-                <h5><a href="#">shayna_gallery</a></h5>
-            </div>
-        </div>
-        <div class="insta-item set-bg" data-setbg="img/insta-2.jpg">
-            <div class="inside-text">
-                <i class="ti-instagram"></i>
-                <h5><a href="#">shayna_gallery</a></h5>
-            </div>
-        </div>
-        <div class="insta-item set-bg" data-setbg="img/insta-3.jpg">
-            <div class="inside-text">
-                <i class="ti-instagram"></i>
-                <h5><a href="#">shayna_gallery</a></h5>
-            </div>
-        </div>
-        <div class="insta-item set-bg" data-setbg="img/insta-4.jpg">
-            <div class="inside-text">
-                <i class="ti-instagram"></i>
-                <h5><a href="#">shayna_gallery</a></h5>
-            </div>
-        </div>
-        <div class="insta-item set-bg" data-setbg="img/insta-5.jpg">
-            <div class="inside-text">
-                <i class="ti-instagram"></i>
-                <h5><a href="#">shayna_gallery</a></h5>
-            </div>
-        </div>
-        <div class="insta-item set-bg" data-setbg="img/insta-6.jpg">
-            <div class="inside-text">
-                <i class="ti-instagram"></i>
-                <h5><a href="#">shayna_gallery</a></h5>
-            </div>
-        </div>
-    </div> -->
-    <!-- Instagram Section End -->
-
-    <!-- Partner Logo Section Begin -->
-    <!-- <div class="partner-logo">
+    <!-- Breadcrumb Section Begin -->
+    <div class="breacrumb-section">
         <div class="container">
-            <div class="logo-carousel owl-carousel">
-                <div class="logo-item">
-                    <div class="tablecell-inner">
-                        <img src="img/logo-carousel/logo-1.png" alt="" />
-                    </div>
-                </div>
-                <div class="logo-item">
-                    <div class="tablecell-inner">
-                        <img src="img/logo-carousel/logo-2.png" alt="" />
-                    </div>
-                </div>
-                <div class="logo-item">
-                    <div class="tablecell-inner">
-                        <img src="img/logo-carousel/logo-3.png" alt="" />
-                    </div>
-                </div>
-                <div class="logo-item">
-                    <div class="tablecell-inner">
-                        <img src="img/logo-carousel/logo-4.png" alt="" />
-                    </div>
-                </div>
-                <div class="logo-item">
-                    <div class="tablecell-inner">
-                        <img src="img/logo-carousel/logo-5.png" alt="" />
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb-text product-more">
+                        <a href="index.php"><i class="fa fa-home"></i> Home</a>
+                        <span>Detail Produk</span>
                     </div>
                 </div>
             </div>
         </div>
-    </div> -->
-    <!-- Partner Logo Section End -->
+    </div>
+    <!-- Breadcrumb Section Begin -->
+    <?php
+    	$ambil = $con->query("SELECT * FROM produk WHERE produk.id_produk='$_GET[id]'");
+        $pecah = $ambil->fetch_assoc();
+    ?>
+    <!-- Product Shop Section Begin -->
+    <section class="product-shop spad page-details">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="product-pic-zoom">
+                                <img class="product-big-img" src="gambar/<?=$pecah['gambar']?>" alt="" />
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="product-details">
+                                <div class="pd-title">
+                                    <h3><?=$pecah['nama']?></h3>
+                                </div>
+                                <div class="pd-desc">
+                                    <p>
+                                        <?=$pecah['deskripsi'];?>
+                                    </p>
+                                    <div class="product-price">
+                                        <h4>Rp <?=number_format($pecah['harga']);?></h4> 
+                                    </div>
+                                </div>
+                                <div class="quantity">
+                                    <a href="beli.php?id=<?php echo $pecah['id_produk'];?>" class="primary-btn pd-cart"> <i class="icon_cart_alt"></i> Add To Cart</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Product Shop Section End -->
 
     <!-- Footer Section Begin -->
     <footer class="footer-section">
@@ -383,29 +234,29 @@
                 <div class="col-lg-5">
                     <div class="footer-left">
                         <div class="footer-logo">
-                            <a href="#"><img src="img/logo_website_shayna_white.png" alt="" /></a>
+                            <a href="#"><img src="gambar/logo.png"/></a>
                         </div>
                         <ul>
-                            <li>Address: Setra Duta, Bandung</li>
-                            <li>Phone: +628 22081996</li>
-                            <li>Email: hello.shayna@gmail.com</li>
+                            <li><strong>Alamat:</strong> Grenden Karangsono, Karang Sono, Grenden, Puger, Kabupaten Jember, Jawa Timur 68164.</li>
+                            <li><strong>No HP:</strong> 081111653234</li>
+                            <li><strong>Instagram:</strong> @jajanan_masdimas</li>
                         </ul>
-                        <div class="footer-social">
+                        <!-- <div class="footer-social">
                             <a href="#"><i class="fa fa-facebook"></i></a>
                             <a href="#"><i class="fa fa-instagram"></i></a>
                             <a href="#"><i class="fa fa-twitter"></i></a>
                             <a href="#"><i class="fa fa-pinterest"></i></a>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <div class="col-lg-3 offset-lg-1">
                     <div class="footer-widget">
                         <h5>Information</h5>
                         <ul>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Checkout</a></li>
-                            <li><a href="#">Contact</a></li>
-                            <li><a href="#">Serivius</a></li>
+                            <li><a href="#">Beranda</a></li>
+                            <li><a href="#">Produk</a></li>
+                            <li><a href="#">Tentang Kami</a></li>
+                            <li><a href="#">Alur Pesan</a></li>
                         </ul>
                     </div>
                 </div>
@@ -413,10 +264,9 @@
                     <div class="footer-widget">
                         <h5>My Account</h5>
                         <ul>
-                            <li><a href="#">My Account</a></li>
-                            <li><a href="#">Contact</a></li>
-                            <li><a href="#">Shopping Cart</a></li>
-                            <li><a href="#">Shop</a></li>
+                            <li><a href="#">Checkout</a></li>
+                            <li><a href="#">Keranjang</a></li>
+                            <li><a href="#">Produk</a></li>
                         </ul>
                     </div>
                 </div>
@@ -431,7 +281,7 @@
                             <script>
                                 document.write(new Date().getFullYear());
                             </script>
-                            All rights reserved | Shayna
+                            All rights reserved | Masdimas
                         </div>
                     </div>
                 </div>

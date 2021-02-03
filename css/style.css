@@ -678,10 +678,19 @@ ol {
 }
 
 .nav-item {
-    background: #252525;
+    background: #ffffff;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+}
+.nav-item .nav-link{
+    color: #212529;
+}
+.nav-item .active{
+    border-bottom: 2px solid #e7ab3c;
+}
+.nav-item .nav-link:hover{
+    border-bottom: 2px solid #e7ab3c;
 }
 
 .nav-item .nav-depart {
@@ -1552,7 +1561,7 @@ ol {
 }
 
 .footer-left .footer-logo img {
-    height: 30px !important;
+    height: 100px !important;
 }
 
 .footer-left .footer-logo a {
