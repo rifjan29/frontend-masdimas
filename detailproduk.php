@@ -56,6 +56,9 @@
                                 <a type="button" href="logout.php" class="btn btn-primary">
                                 <i class="fa fa-sign-out" aria-hidden="true"></i> Keluar
                                 </a>
+                                <a type="button" href="list-transaksi.php" class="btn btn-primary">
+                                <i class="fa fa-money" aria-hidden="true"></i></i> List-transaksi
+                                </a>
                             <?php
                             }else{
                         ?>

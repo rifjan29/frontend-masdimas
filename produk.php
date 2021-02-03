@@ -56,6 +56,9 @@
                                 <a type="button" href="logout.php" class="btn btn-primary">
                                 <i class="fa fa-sign-out" aria-hidden="true"></i> Keluar
                                 </a>
+                                <a type="button" href="list-transaksi.php" class="btn btn-primary">
+                                <i class="fa fa-money" aria-hidden="true"></i></i> List-transaksi
+                                </a>
                             <?php
                             }else{
                         ?>
@@ -111,8 +114,11 @@
                                 ?>
                                 <li class="nav-item">
                                 <a class="nav-link disabled" style="color:grey;" href="produk.php">Produk</a>
-                            </li>
+                                </li>
                         <?php } ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="alur-pesan.php">Alur Pesanan</a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="alur-pesan.php">Alur Pesanan</a>
                         </li>

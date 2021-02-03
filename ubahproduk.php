@@ -11,7 +11,7 @@ $data = mysqli_fetch_array($ambil);
 	<table>
 		<tr>
 			<td width="110"><p>ID Produk</p></td>
-			<td><input type='text' name='id_produk' value="<?php echo $data['id_produk'] ?>"></td>
+			<td><input type='hidden' name='id_produk' value="<?php echo $data['id_produk'] ?>"></td>
 		</tr>
 		<tr>
 			<td><p>Nama</p></td>
@@ -22,6 +22,7 @@ $data = mysqli_fetch_array($ambil);
 			<td><input type='number' name='harga' value="<?php echo $data['harga'] ?>"></td>
 		</tr>
 		<tr>
+			<input type="hidden" name="gambar_lama" value="<?=$data['gambar']?>">
 			<td><p>Gambar</p></td>
 			<td><img src="gambar/<?php echo $data['gambar'];?>"width="50" height="80"><input type='file' name='gambar' value="<?php echo $data['gambar'] ?>"></td>
 		</tr>
@@ -38,14 +39,20 @@ if (isset($_POST['ubah']))
 	$id_produk = $_POST['id_produk'];
 	$nama = $_POST['nama'];
 	$harga = $_POST['harga'];
-
+	$gambar_lama = $_POST['gambar_lama'];
 	$foto = $_FILES['gambar']['name'];
 	$lokasi = $_FILES['gambar']['tmp_name'];
+	if (move_uploaded_file($lokasi, "gambar/".$foto)) {
+		mysqli_query($con ,"UPDATE produk SET id_produk='$id_produk', nama='$nama', harga='$harga', gambar='$foto' WHERE id_produk='$id_produk'");
+		unlink("gambar/$gambar_lm");
+	
+		header("Location:dataproduk.php");
+	
+		# code...
+	}else{
+		echo "ada yang salah";
+	}
 
-		mysqli_query($con ,"UPDATE produk SET id_produk='$id_produk', nama='$nama', harga='$harga', gambar='$foto' WHERE id_produk='$_GET[id]'");
-
-	echo "<div class='alert alert-info'>Data Telah Diubah</div>";
-	echo "<meta http-equiv='refresh' content='1;url=dataproduk.php?halaman=produk'>";
 
 }
 ?>

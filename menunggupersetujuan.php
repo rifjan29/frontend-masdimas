@@ -48,42 +48,42 @@ if($_SESSION['status']!="login"){
 
 	<div class='gambar'>
 
-		<h2> Data Produk </h2>
+		<h2> Menunggu Persetujuan </h2>
 
 		<table class="table">
 			<thead>
 				<tr>
-					<th>ID Produk</th>
-					<th>Nama</th>
-					<th>Harga</th>
-					<th>Gambar</th>
+					<th>Bukti Pembayaran</th>
+					<th>Username</th>
+					<th>Pembeli</th>
+					<th>Tanggal</th>
+					<th>Total</th>
 					<th>Aksi</th>
 				</tr>
 			</thead>
 			<tbody>
 				<?php 
 				include 'konek.php';
-				$ambil=$con->query("SELECT * FROM produk"); ?>
+				$ambil=$con->query("SELECT * FROM pembelian JOIN pengguna ON pembelian.username=pengguna.username WHERE pembelian.status = 'diproses' AND pembelian.bukti_pembayaran IS NOT NULL"); ?>
 				<?php while($pecah = $ambil->fetch_assoc()){ ?>
 					<tr>
-						<td><?php echo $pecah['id_produk'];?></td>
-						<td><?php echo $pecah['nama'];?></td>
-						<td><?php echo $pecah['harga'];?></td>
 						<td>
-							<img src="gambar/<?php echo $pecah['gambar'];?>"width="50" height="80">
-						</td>
+                            <img src="bukti_pembayaran/<?= $pecah['bukti_pembayaran'] ?>" alt="<?= $pecah['bukti_pembayaran'] ?>" width="230px" height="300px">
+                        </td>
+						<td><?php echo $pecah['username'];?></td>
+						<td><?=$pecah['atasnama']?></td>
+						<td><?php echo $pecah['tanggal'];?></td>
+						<td><?php echo $pecah['total'];?></td>
 						<td>
-							<a href="admin.php?halaman=hapusproduk&id=<?php echo $pecah['id_produk'];?>" class="btn">hapus</a>
-							<a href="admin.php?halaman=ubahproduk&id=<?php echo $pecah['id_produk'];?>" class="btn">ubah</a>
+							<a href="admin.php?halaman=detail&id=<?php echo $pecah['id_pembelian'];?>" class="btn">Detail</a>
+							<a href="terima.php?id=<?php echo $pecah['id_pembelian'];?>" class="btn">Terima</a>
+							<a href="tolak.php?id=<?php echo $pecah['id_pembelian'];?>" class="btn">Tolak</a>
 						</td>
 					</tr>
 				<?php } ?>
 			</tbody>
 		</table>
-	</div>
 
-	<div class='tambah'>
-		<a href="admin.php?halaman=tambahproduk">Tambah</a>
 	</div>
 
 	<div class='footer'>

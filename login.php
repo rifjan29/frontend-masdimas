@@ -73,6 +73,9 @@
                                 Daftar akun?
                             </a>
                         </div>
+                        <div class="d-flex justify-content-end">
+                        <div class="p-2"><a type="button" href="loginadmin.php" class="btn btn-primary text-white">Administrator</a></div>
+                        </div>
                     </div>
                 </div>
                         

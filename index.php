@@ -56,6 +56,9 @@
                                 <a type="button" href="logout.php" class="btn btn-primary">
                                 <i class="fa fa-sign-out" aria-hidden="true"></i> Keluar
                                 </a>
+                                <a type="button" href="list-transaksi.php" class="btn btn-primary">
+                                <i class="fa fa-money" aria-hidden="true"></i></i> List-transaksi
+                                </a>
                             <?php
                             }else{
                         ?>
@@ -103,7 +106,7 @@
                         <ul class="nav-right">
                             <li class="cart-icon">
                                 Keranjang Belanja &nbsp;
-                                <a href="#">
+                                <a href="keranjang.php">
                                     <i class="icon_cart_alt"></i>
                                     <span></span>
                                 </a>
