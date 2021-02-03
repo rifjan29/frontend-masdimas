@@ -89,7 +89,7 @@
                         <ul class="nav-right">
                             <li class="cart-icon">
                                 Keranjang Belanja &nbsp;
-                                <a href="#">
+                                <a href="keranjang.php">
                                     <i class="icon_cart_alt"></i>
                                     <span></span>
                                 </a>
