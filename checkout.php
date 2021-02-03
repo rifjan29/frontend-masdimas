@@ -190,10 +190,10 @@ $con = new mysqli("localhost","root","","masdimas");
   <section class="gambar">
 		<div class="container"><br>
             <h2 class="text-center">List Keranjang</h2><br>
-            <form class="form-inline" method="POST" action="checkout.php">
+            <form method="POST" action="checkout.php" class="form-inline">
                 <div class="form-group row">
                     <div class="col-sm-10">
-                      <input type="text" class="form-control" nama="atasnama" placeholder="Atas Nama (Lengkap)" required>
+                      <input type="text" class="form-control" name="atasnama" placeholder="Atas Nama (Lengkap)" required>
                     </div>
                   </div>
                     <div class="col-sm-6 mb-0 mb-sm-0">
@@ -210,8 +210,7 @@ $con = new mysqli("localhost","root","","masdimas");
                           <input type="date" class="form-control" name="tanggal" placeholder="Email">
                         </div>
                       </div>               
-            </form>
-            <br>
+            <br><br><br>
 			<table class="table table-bordered table-hover">
                 <thead style="background-color:#E7AB3C" class="text-center">
                   <tr>
@@ -253,10 +252,12 @@ $con = new mysqli("localhost","root","","masdimas");
               </table>
               <div class="d-flex justify-content-end">
                 <div class="p-2">
-                <input type="submit" class="btn btn-primary" name="transaksi" value="Transaksi">
+                <input type="submit" class="btn btn-primary" id="transaksi" name='transaksi' value="Transaksi">
                 <a href="aboutus.php" class="btn btn btn-outline-warning" role="button" aria-pressed="true">Hubungi Penjual</a>
                 </div>
-                <?php
+              </div>
+              </form>
+              <?php
 			if (isset($_POST["transaksi"]))
 			{
 				include 'konek.php';
@@ -281,7 +282,7 @@ $con = new mysqli("localhost","root","","masdimas");
 								$subharga = $pecah['harga']*$jumlah;
 								$detail_pembelian = mysqli_query($con, "INSERT INTO detail_pembelian VALUES ('$id','$id_produk','$jumlah','$subharga')");
 								echo "<script>alert('Transaksi Berhasil! Pesanan sedang diproses');</script>";
-								echo "<script>location='home.php';</script>";
+								echo "<script>location='index.php';</script>";
 								unset($_SESSION['keranjang']);
 							endforeach;
 						}else{
@@ -306,7 +307,6 @@ $con = new mysqli("localhost","root","","masdimas");
 			}
 			}
 			?>
-              </div>
           </section><br><br>
 
  <!-- Footer Section Begin -->
