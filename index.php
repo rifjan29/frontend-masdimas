@@ -173,12 +173,14 @@ if($_SESSION['status']!="login"){
     <section class="women-banner spad">
         <div class="container-fluid">
             <div class="row">
+            <?php $ambil = $con->query ("SELECT * FROM produk");?>
+                            <?php while ($pecah = $ambil->fetch_assoc()) 
+                            { 
+                            ?>  
                 <div class="col-lg-12 mt-5">
                     <div class="product-slider owl-carousel">
                         <div class="product-item">
-                            <div class="pi-pic">
-                            <?php $ambil = $con->query ("SELECT * FROM produk");?>
-                            <?php while ($pecah = $ambil->fetch_assoc()) { ?>   
+                            <div class="pi-pic"> 
                                 <img src='gambar/<?php echo $pecah['gambar'];?>' alt="">
                                 <ul>
                                     <li class="w-icon active">
@@ -188,16 +190,16 @@ if($_SESSION['status']!="login"){
                                 </ul>
                             </div>
                             <div class="pi-text">
-                                <div class="catagory-name">Coat</div>
+                                <div class="catagory-name"></div>
                                 <a href="#">
-                                    <h5>Mickey Baggy</h5>
+                                    <h5><?php echo $pecah['nama'];?></h5>
                                 </a>
                                 <div class="product-price">
                                     $14.00
                                     <span>$35.00</span>
                                 </div>
-                                <?php } ?>
                             </div>
+                            <?php } ?>
                         </div>
                         <!-- <div class="product-item">
                             <div class="pi-pic">
@@ -252,7 +254,7 @@ if($_SESSION['status']!="login"){
                                     </li>
                                 </ul>
                             </div> -->
-                            <div class="pi-text">
+                             <!-- <div class="pi-text">
                                 <div class="catagory-name">Towel</div>
                                 <a href="#">
                                     <h5>Converse Shoes</h5>
@@ -260,8 +262,8 @@ if($_SESSION['status']!="login"){
                                 <div class="product-price">
                                     $34.00
                                 </div>
-                            </div>
-                        </div> -->
+                            </div> -->
+                        </div> 
                     </div>
                 </div>
             </div>
