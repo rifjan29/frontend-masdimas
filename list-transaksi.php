@@ -1,3 +1,11 @@
+<?php
+session_start();
+
+$con = new mysqli("localhost","root","","masdimas");
+$username = $_SESSION['username'];
+$data = mysqli_query($con, "SELECT pembelian.id_pembelian, pembelian.atasnama, pembelian.tanggal, pembelian.total, pembelian.status, pembelian.bukti_pembayaran, detail_pembelian.ud_pembelian FROM `pembelian` JOIN detail_pembelian ON pembelian.id_pembelian = detail_pembelian.ud_pembelian WHERE pembelian.username = '$username' GROUP BY detail_pembelian.ud_pembelian ");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

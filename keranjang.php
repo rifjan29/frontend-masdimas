@@ -13,7 +13,7 @@ $con = new mysqli("localhost","root","","masdimas");
     <meta name="keywords" content="Shayna, unica, creative, html" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Shayna | Template</title>
+    <title>Keranjang</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet" />
@@ -30,8 +30,8 @@ $con = new mysqli("localhost","root","","masdimas");
     <link rel="stylesheet" href="css/style.css" type="text/css" />
 </head>
 <body>
-     <!-- Page Preloder -->
- <div id="preloder">
+    <!-- Page Preloder -->
+    <div id="preloder">
         <div class="loader"></div>
     </div>
 
@@ -49,9 +49,21 @@ $con = new mysqli("localhost","root","","masdimas");
                 </div>
                 <div class="ht-right-login">
                     <div class="mail-service">
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#masuk-akun">
-                        <i class=" fa fa-user"></i> Masuk
-                        </button>
+                        <?php
+                            if (isset($_SESSION['username'])) {
+                                ?>
+                                 Selamat datang, <strong><?=$_SESSION['username']; ?></strong> 
+                                <a type="button" href="logout.php" class="btn btn-primary">
+                                <i class="fa fa-sign-out" aria-hidden="true"></i> Keluar
+                                </a>
+                            <?php
+                            }else{
+                        ?>
+                            <a type="button" href="login.php" class="btn btn-primary">
+                            <i class=" fa fa-user"></i> Masuk
+                            </a>
+
+                        <?php } ?>
                     </div>
                     <div class="phone-service">
                         <a type="button" class="btn btn-outline-secondary" href="daftar-akun.html">
@@ -110,60 +122,15 @@ $con = new mysqli("localhost","root","","masdimas");
                                 <img src="gambar/logo.png" alt="" />
                             </a>
                         </div>
-                    </div>
-                    <div class="col-lg-7 col-md-7"></div>
+                        <div class="col-lg-7 col-md-7"></div>
                     <div class="col-lg-3 text-right col-md-3">
                         <ul class="nav-right">
                             <li class="cart-icon">
                                 Keranjang Belanja &nbsp;
                                 <a href="#">
-                                    <i class="icon_bag_alt"></i>
-                                    <span>3</span>
+                                    <i class="icon_cart_alt"></i>
+                                    <span></span>
                                 </a>
-                                <div class="cart-hover">
-                                    <div class="select-items">
-                                        <table>
-                                            <tbody>
-                                                <tr>
-                                                    <td class="si-pic">
-                                                        <img src="img/select-product-1.jpg" alt="" />
-                                                    </td>
-                                                    <td class="si-text">
-                                                        <div class="product-selected">
-                                                            <p>$60.00 x 1</p>
-                                                            <h6>Kabino Bedside Table</h6>
-                                                        </div>
-                                                    </td>
-                                                    <td class="si-close">
-                                                        <i class="ti-close"></i>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="si-pic">
-                                                        <img src="img/select-product-2.jpg" alt="" />
-                                                    </td>
-                                                    <td class="si-text">
-                                                        <div class="product-selected">
-                                                            <p>$60.00 x 1</p>
-                                                            <h6>Kabino Bedside Table</h6>
-                                                        </div>
-                                                    </td>
-                                                    <td class="si-close">
-                                                        <i class="ti-close"></i>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <div class="select-total">
-                                        <span>total:</span>
-                                        <h5>$120.00</h5>
-                                    </div>
-                                    <div class="select-button">
-                                        <a href="#" class="primary-btn view-card">VIEW CARD</a>
-                                        <a href="#" class="primary-btn checkout-btn">CHECK OUT</a>
-                                    </div>
-                                </div>
                             </li>
                         </ul>
                     </div>
@@ -186,7 +153,6 @@ $con = new mysqli("localhost","root","","masdimas");
             </div>
         </div>
     </div>
-    <!-- Breadcrumb Section Begin -->
 
 
     <section class="gambar">
@@ -244,12 +210,12 @@ $con = new mysqli("localhost","root","","masdimas");
     <?php
 			if (isset($ambil)) {
 			 ?>
-				<a href="produk.php" class="btn btn btn-outline-warning" role="button" aria-pressed="true">Lanjutkan Belanja</a>
-				<a href="checkout.php" class="btn btn btn-primary" role="button" aria-pressed="true">Checkout</a>
+				<a href="produk.php" class="btn btn-outline-warning" role="button" aria-pressed="true">Lanjutkan Belanja</a>
+				<a href="checkout.php" class="btn btn-primary" role="button" aria-pressed="true">Checkout</a>
 			<?php
 			}else{
 				?>
-				<a href="produk.php" class="btn">Lanjutkan Belanja</a>
+				<a href="produk.php" class="btn btn-outline-warning">Lanjutkan Belanja</a>
 				<?php
 			}
         ?>
