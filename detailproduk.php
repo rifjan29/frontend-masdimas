@@ -1,6 +1,6 @@
 <?php 
     session_start();
-    include 'konek.php'
+    include 'konek.php';
 ?>
 <!DOCTYPE html>
 <html lang="zxx">
@@ -49,9 +49,21 @@
                 </div>
                 <div class="ht-right-login">
                     <div class="mail-service">
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#masuk-akun">
-                        <i class=" fa fa-user"></i> Masuk
-                        </button>
+                        <?php
+                            if (isset($_SESSION['username'])) {
+                                ?>
+                                 Selamat datang, <strong><?=$_SESSION['username']; ?></strong> 
+                                <a type="button" href="logout.php" class="btn btn-primary">
+                                <i class="fa fa-sign-out" aria-hidden="true"></i> Keluar
+                                </a>
+                            <?php
+                            }else{
+                        ?>
+                            <a type="button" href="login.php" class="btn btn-primary">
+                            <i class=" fa fa-user"></i> Masuk
+                            </a>
+
+                        <?php } ?>
                     </div>
                     <div class="phone-service">
                         <a type="button" class="btn btn-outline-secondary" href="daftar-akun.html">

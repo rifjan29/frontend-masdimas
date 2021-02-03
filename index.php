@@ -49,12 +49,24 @@
                 </div>
                 <div class="ht-right-login">
                     <div class="mail-service">
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#masuk-akun">
-                        <i class=" fa fa-user"></i> Masuk
-                        </button>
+                        <?php
+                            if (isset($_SESSION['username'])) {
+                                ?>
+                                Selamat datang, <strong><?=$_SESSION['username']; ?></strong> 
+                                <a type="button" href="logout.php" class="btn btn-primary">
+                                <i class="fa fa-sign-out" aria-hidden="true"></i> Keluar
+                                </a>
+                            <?php
+                            }else{
+                        ?>
+                            <a type="button" href="login.php" class="btn btn-primary">
+                            <i class=" fa fa-user"></i> Masuk
+                            </a>
+
+                        <?php } ?>
                     </div>
                     <div class="phone-service">
-                        <a type="button" class="btn btn-outline-secondary" href="daftar-akun.html">
+                        <a type="button" class="btn btn-outline-secondary" href="daftar-akun.php">
                         <i class=" fa fa-user-plus"></i> Daftar Akun
                         </a>
                     </div>
@@ -62,48 +74,22 @@
             </div>
         </div>
 
-<!-- modal untuk masuk akun -->
-<div class="modal" id="masuk-akun" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Silahkan Masuk </h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form>
-          <div class="form-group">
-            <label for="formGroupExampleInput">Username</label>
-            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Masukkan Username" required>
-          </div>
-          <div class="form-group">
-            <label for="formGroupExampleInput2">Password</label>
-            <input type="password" class="form-control" id="formGroupExampleInput2" placeholder="Masukkan Password" required="masukkan oy">
-          </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-        <button type="submit" class="btn btn-primary">Masuk</button>
-      </div>
-        <div class="form-group">
-            <div class="col-md-12 control">
-                 <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%" >
-                                            Tidak punya akun! 
-                    <a href="daftar-akun.html">
-                        Daftar akun?
-                     </a>
-                </div>
-            </div>
-        </div>
-       </form>
-    </div>
-  </div>
-</div>
+
+
 <!-- selesai untuk masuk akun -->
         <div class="container">
             <div class="inner-header">
+            <?php
+                if (isset($_SESSION['username']) && !empty($_SESSION['username'])) {
+                    ?>
+                    <div class="alert alert-success"><b>Selamat Datang!</b> <?=$_SESSION['username']; ?>.</div>
+                    <?php
+                    
+                }else{
+                   
+                }
+            ?>
+
                 <div class="row">
                     <div class="col-lg-2 col-md-2">
                         <div class="logo">
@@ -129,9 +115,19 @@
                         <li class="nav-item">
                             <a class="nav-link active" href="index.php">Beranda</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="produk.php">Produk</a>
-                        </li>
+                        <?php
+                            if (isset($_SESSION['username'])) {
+                               ?>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="produk.php">Produk</a>
+                                </li> 
+                               <?php
+                            }else{
+                                ?>
+                                <li class="nav-item">
+                                <a class="nav-link disabled" style="color:grey;" href="produk.php">Produk</a>
+                            </li>
+                        <?php } ?>
                         <li class="nav-item">
                             <a class="nav-link" href="tentang-kami.php">Tentang Kami</a>
                         </li>
@@ -198,13 +194,32 @@
                                     <li class="w-icon active">
                                         <a href="#"><i class="icon_bag_alt"></i></a>
                                     </li>
-                                    <li class="quick-view"><a href="halaman.php?halaman=detail&id=<?php echo $pecah['id_produk'];?>">Detail Produk</a></li>
+                                    <?php
+                                    if (isset($_SESSION['username'])) {
+                                        ?>
+                                            <li class="quick-view"><a href="halaman.php?halaman=detail&id=<?php echo $pecah['id_produk'];?>">Detail Produk</a></li>
+                                        <?php
+                                    }else{
+                                        ?>
+                                        <li class="quick-view"><a href="login.php">Detail Produk</a></li>
+                                    <?php } ?>
+                                    
                                 </ul>
                             </div>
                             <div class="pi-text">
-                                <a href="halaman.php?halaman=detail&id=<?php echo $pecah['id_produk'];?>">
-                                    <h5><?=$pecah['nama'];?></h5>
-                                </a>
+                                <?php
+                                    if (isset($_SESSION['username'])) {
+                                        ?>
+                                        <a href="halaman.php?halaman=detail&id=<?php echo $pecah['id_produk'];?>">
+                                            <h5><?=$pecah['nama'];?></h5>
+                                        </a>
+                                        <?php
+                                    }else{
+                                        ?>
+                                         <a href="login.php">
+                                            <h5><?=$pecah['nama'];?></h5>
+                                        </a>  
+                                    <?php } ?>
                                 <div class="product-price">
                                      Rp <?=number_format($pecah['harga']);?>
                                 </div>
@@ -216,9 +231,21 @@
             </div>
             <div class="row">
                 <div class="col-lg 12 d-flex justify-content-end">
-                    <a type="button" class="btn btn-primary"  href="produk.php">
-                         Selengkapnya....
-                    </a>
+                <?php
+                    if (isset($_SESSION['username'])) {
+                        ?>
+                        <a type="button" class="btn btn-primary"  href="produk.php">
+                            Selengkapnya....
+                        </a>
+                    <?php
+                    }else{
+                        ?>
+                        <a type="button" class="btn btn-primary disabled"  href="produk.php">
+                            Selengkapnya....
+                        </a>
+
+                    <?php }
+                ?>
                 </div>
             </div>
         </div>
@@ -287,7 +314,6 @@
         </div>
     </footer>
     <!-- Footer Section End -->
-
     <!-- Js Plugins -->
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
