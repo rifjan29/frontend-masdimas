@@ -177,7 +177,9 @@ if($_SESSION['status']!="login"){
                     <div class="product-slider owl-carousel">
                         <div class="product-item">
                             <div class="pi-pic">
-                                <img src="img/mickey1.jpg" alt="" />
+                            <?php $ambil = $con->query ("SELECT * FROM produk");?>
+                            <?php while ($pecah = $ambil->fetch_assoc()) { ?>   
+                                <img src='gambar/<?php echo $pecah['gambar'];?>' alt="">
                                 <ul>
                                     <li class="w-icon active">
                                         <a href="#"><i class="icon_bag_alt"></i></a>
@@ -194,9 +196,10 @@ if($_SESSION['status']!="login"){
                                     $14.00
                                     <span>$35.00</span>
                                 </div>
+                                <?php } ?>
                             </div>
                         </div>
-                        <div class="product-item">
+                        <!-- <div class="product-item">
                             <div class="pi-pic">
                                 <img src="img/products/women-2.jpg" alt="" />
                                 <ul>
@@ -248,7 +251,7 @@ if($_SESSION['status']!="login"){
                                         <a href="#"><i class="fa fa-random"></i></a>
                                     </li>
                                 </ul>
-                            </div>
+                            </div> -->
                             <div class="pi-text">
                                 <div class="catagory-name">Towel</div>
                                 <a href="#">
@@ -258,7 +261,7 @@ if($_SESSION['status']!="login"){
                                     $34.00
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
