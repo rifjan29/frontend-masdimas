@@ -1,3 +1,11 @@
+<?php 
+include 'konek.php';
+session_start();
+if($_SESSION['status']!="login"){
+    header("location:../index.php?pesan=belum_login");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -212,7 +220,9 @@
                     <div class="product-slider owl-carousel">
                         <div class="product-item">
                             <div class="pi-pic">
-                                <img src="img/mickey1.jpg" alt="" />
+                            <?php $ambil = $con->query ("SELECT * FROM produk");?>
+                            <?php while ($pecah = $ambil->fetch_assoc()) { ?>   
+                                <img src='gambar/<?php echo $pecah['gambar'];?>' alt="">
                                 <ul>
                                     <li class="w-icon active">
                                         <a href="#"><i class="icon_bag_alt"></i></a>
@@ -229,9 +239,10 @@
                                     $14.00
                                     <span>$35.00</span>
                                 </div>
+                                <?php } ?>
                             </div>
                         </div>
-                        <div class="product-item">
+                        <!-- <div class="product-item">
                             <div class="pi-pic">
                                 <img src="img/products/women-2.jpg" alt="" />
                                 <ul>
@@ -283,7 +294,7 @@
                                         <a href="#"><i class="fa fa-random"></i></a>
                                     </li>
                                 </ul>
-                            </div>
+                            </div> -->
                             <div class="pi-text">
                                 <div class="catagory-name">Towel</div>
                                 <a href="#">
@@ -293,7 +304,7 @@
                                     $34.00
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -302,7 +313,7 @@
     <!-- Women Banner Section End -->
 
     <!-- Instagram Section Begin -->
-    <div class="instagram-photo">
+    <!-- <div class="instagram-photo">
         <div class="insta-item set-bg" data-setbg="img/insta-1.jpg">
             <div class="inside-text">
                 <i class="ti-instagram"></i>
@@ -339,11 +350,11 @@
                 <h5><a href="#">shayna_gallery</a></h5>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- Instagram Section End -->
 
     <!-- Partner Logo Section Begin -->
-    <div class="partner-logo">
+    <!-- <div class="partner-logo">
         <div class="container">
             <div class="logo-carousel owl-carousel">
                 <div class="logo-item">
@@ -373,7 +384,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- Partner Logo Section End -->
 
     <!-- Footer Section Begin -->
