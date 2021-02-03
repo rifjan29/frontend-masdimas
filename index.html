@@ -44,16 +44,59 @@
                 </div>
                 <div class="ht-right-login">
                     <div class="mail-service">
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                        <i class=" fa fa-user"></i> Login
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#masuk-akun">
+                        <i class=" fa fa-user"></i> Masuk
                         </button>
                     </div>
                     <div class="phone-service">
+                        <a type="button" class="btn btn-outline-secondary" href="daftar-akun.html">
                         <i class=" fa fa-user-plus"></i> Daftar Akun
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
+
+<!-- modal untuk masuk akun -->
+<div class="modal" id="masuk-akun" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Silahkan Masuk </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="formGroupExampleInput">Username</label>
+            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Masukkan Username" required>
+          </div>
+          <div class="form-group">
+            <label for="formGroupExampleInput2">Password</label>
+            <input type="password" class="form-control" id="formGroupExampleInput2" placeholder="Masukkan Password" required="masukkan oy">
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+        <button type="submit" class="btn btn-primary">Masuk</button>
+      </div>
+        <div class="form-group">
+            <div class="col-md-12 control">
+                 <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%" >
+                                            Tidak punya akun! 
+                    <a href="daftar-akun.html">
+                        Daftar akun?
+                     </a>
+                </div>
+            </div>
+        </div>
+       </form>
+    </div>
+  </div>
+</div>
+<!-- selesai untuk masuk akun -->
         <div class="container">
             <div class="inner-header">
                 <div class="row">

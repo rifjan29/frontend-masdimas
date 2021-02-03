@@ -4379,6 +4379,17 @@ ol {
     }
 }
 .btn-primary{
-    background-color: red;
+   background: #e7ab3c !important;
+   border: none;
+}
+.btn-primary:hover{
+   background: #e7ab3c !important;
+   border: none;
+}
+.btn-primary:active{
+   background: #e7ab3c !important;
+   border: none;
+}
+.btn-outline-secondary{
     border: none;
 }
