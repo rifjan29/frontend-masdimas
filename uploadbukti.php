@@ -2,18 +2,20 @@
 session_start();
 
 $con = new mysqli("localhost","root","","masdimas");
-
+$username = $_SESSION['username'];
+$id = $_GET['id'];
+$data = mysqli_query($con, "SELECT id_pembelian, atasnama, username, tanggal, total FROM pembelian WHERE username = '$username' AND id_pembelian = '$id'");
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8" />
+<meta charset="UTF-8" />
     <meta name="description" content="Shayna Template" />
     <meta name="keywords" content="Shayna, unica, creative, html" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Keranjang</title>
+    <title>List Transaksi</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet" />
@@ -30,8 +32,8 @@ $con = new mysqli("localhost","root","","masdimas");
     <link rel="stylesheet" href="css/style.css" type="text/css" />
 </head>
 <body>
-    <!-- Page Preloder -->
-    <div id="preloder">
+ 	     <!-- Page Preloder -->
+          <div id="preloder">
         <div class="loader"></div>
     </div>
 
@@ -151,81 +153,54 @@ $con = new mysqli("localhost","root","","masdimas");
                 <div class="col-lg-12">
                     <div class="breadcrumb-text product-more">
                         <a href="index.php"><i class="fa fa-home"></i> Home</a>
-                        <span>Keranjang</span>
+                        <span>Upload Bukti Pembayaran</span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <!-- Breadcrumb Section Begin -->
+
+	<section class='gambar'>
+		<div class='container'>
+		<h2 class="text-center">Upload Bukti Pembayaran</h2><br>
+			<?php while($item = mysqli_fetch_array($data)){ ?>
+				  <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Atas Nama :</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" value="<?= $item['atasnama'] ?>" disabled>
+                        </div>
+					  </div>                
+                <?php 
+                    $detail = mysqli_query($con, "SELECT * FROM detail_pembelian JOIN produk ON detail_pembelian.id_produk = produk.id_produk WHERE ud_pembelian = '$id'");
+                    while($item_detail = mysqli_fetch_array($detail)){
+				?>
+					<div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Nama Produk :</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" value="<?= $item_detail['nama'] ?>" disabled>
+                        </div>
+                      </div>  
+                    <!-- <p><label>Produk : </label></p> -->
+                    <img src="gambar/<?= $item_detail['gambar'] ?>" alt="<?= $item_detail['gambar'] ?>" width="150px" height="150px">
+                <?php } ?>
+            <?php } ?>
+		</div>
+	</section>
+	<div class='btn'>
+		<br>
+		<br>
+		<form action="uploadbukti_proses.php" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="id_pembelian" value="<?= $id ?>">
+            <p><label for="bukti">Upload Bukti Pembayaran</label> <input type="file" class="form-control-file" name="bukti" id="bukti"></p>
+            <input type="submit" class="btn btn-primary" value="Kirim">
+        </form>
+		<br>
+        <br>
+        
+    </div>
 
 
-    <section class="gambar">
-    <div class="container">
-        <h2 class="text-center">Keranjang Belanja</h2><br>
-        <?php
-			if (isset($_SESSION['keranjang'])) {
-				?>
-    <table class="table table-bordered table-hover">
-        <thead style="background-color:#E7AB3C" class="text-center">
-          <tr>
-            <th>NO</th>
-            <th>GAMBAR</th>
-            <th>NAMA</th>
-            <th>HARGA</th>
-            <th>JUMLAH</th>
-            <th>SUBTOTAL</th>
-            <th>AKSI</th>
-          </tr>
-        </thead>
-        <tbody>
-        <?php 
-					$nomor=1;
-					foreach ($_SESSION['keranjang'] as $id_produk => $jumlah): ?>
-						<?php $ambil = $con->query("SELECT * FROM produk WHERE id_produk='$id_produk'");
-						$pecah = $ambil->fetch_assoc();
-						// $id_produk = $pecah['id_produk'];
-						$subharga = $pecah['harga']*$jumlah;
-						?>
-          <tr>
-          <td><?php echo $nomor; ?></td>
-							<td> <img src='gambar/<?php echo $pecah['gambar'];?>' width="50" weight="80" alt=""></td>
-							<td><?php echo $pecah['nama'];?></td>
-							<td><?php echo $pecah['harga'];?></td>
-							<td><?php echo $jumlah;?></td>
-							<td><?php echo number_format($subharga);?></td>             
-            <td><a href="hapuskeranjang.php?id=<?php echo $id_produk?>" class="btn btn-danger fa fa-minus-square d-flex justify-content-center"></a></td>               
-          </tr>
-          <?php $nomor++;?>
-		    <?php endforeach ?>
-        </tbody> 
-      </table>
-      <?php
-			}else{
-				?>
-					<center>
-						<p>Maaf tidak ada keranjang yang tersimpan</p>
-					</center>
-				<?php
-			}
-		?>
-
-    <div class="d-flex justify-content-start"><br>
-    <div class="p-2">
-    <?php
-			if (isset($ambil)) {
-			 ?>
-				<a href="produk.php" class="btn btn-outline-warning" role="button" aria-pressed="true">Lanjutkan Belanja</a>
-				<a href="checkout.php" class="btn btn-primary" role="button" aria-pressed="true">Checkout</a>
-			<?php
-			}else{
-				?>
-				<a href="produk.php" class="btn btn-outline-warning">Lanjutkan Belanja</a>
-				<?php
-			}
-        ?>
-        </div>	
-    </div> 
-</section><br><br>
 <!-- Footer Section Begin -->
 <footer class="footer-section">
         <div class="container">
