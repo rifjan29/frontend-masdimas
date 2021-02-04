@@ -177,7 +177,6 @@ $data = mysqli_query($con, "SELECT pembelian.id_pembelian, pembelian.atasnama, p
                             <th>Status</th>
                             <th>Tanggal</th>
                             <th>Bukti Pembayaran</th>
-                            <th>Aksi</th>
                         </tr>
         </thead>
         <tbody>
@@ -204,11 +203,7 @@ $data = mysqli_query($con, "SELECT pembelian.id_pembelian, pembelian.atasnama, p
                                         <a href="uploadbukti.php?id=<?php echo $item['id_pembelian']?>" class='btn btn-primary'>Upload Bukti Pembayaran</a>
                                     <?php } ?>
                                 </td>
-                                <td>
-                                    <a href="detailtransaksi.php?id=<?php echo $item['id_pembelian']?>" class='btn btn-primary'><i class="fa fa-info"></i></a>
-                                    |
-                                    <a href="hapustransaksi.php?id=<?php echo $item['id_pembelian']?>" class='btn btn-danger'><i class="fa fa-trash"></i></a>
-                                </td>
+
                             </tr>
                             <?php $nomor++;?>
                         <?php } ?>
@@ -229,12 +224,12 @@ $data = mysqli_query($con, "SELECT pembelian.id_pembelian, pembelian.atasnama, p
 		<?php
 			if (isset($ambil)) {
 			 ?>
-				<a href="home.php" class="btn btn btn-outline-warning">Lanjutkan Belanja</a>
+				<a href="produk.php" class="btn btn-outline-warning">Lanjutkan Belanja</a>
 				<a href="checkout.php" class="btn btn-primary">CHECKOUT</a>
 			<?php
 			}else{
 				?>
-				<a href="home.php" class="btn btn btn-outline-warning">Lanjutkan Belanja</a>
+				<a href="produ.php" class="btn btn-outline-warning">Lanjutkan Belanja</a>
 				<?php
 			}
 		?>

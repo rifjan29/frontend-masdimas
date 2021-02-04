@@ -7,7 +7,7 @@ include 'konek.php';
 // {
 // 	unlink("../gambar/$gambar");
 // }
-$con->query("DELETE FROM pembelian WHERE id_pembelian='$_GET[id]'");
+$con->query("DELETE FROM pembelian WHERE id_pembelian = '$_GET[id]'");
 echo "<div class='alert alert-info'>Data telah dihapus</div>";
 echo "<meta http-equiv='refresh' content='1;url=list-transaksi.php?halaman=produk'>";
 ?>
